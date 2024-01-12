@@ -128,8 +128,15 @@
             padding:10px;
             width:calc(100% - 20px);
         }
-        #jelogin{
-            display:block;
+        footer p{
+            margin-bottom:10px
+        }
+        footer a{
+            color:#888;
+            text-decoration-color: #888;
+        }
+        .linkbutton{
+            display:inline-block;
             text-align: center;
             padding:7px;
             margin: 0 auto;
@@ -138,6 +145,9 @@
             border-radius: 10px;
             font-size:20px;
             text-decoration: none;
+        }
+        #jelogin{
+            display:block;
         }
         #img1,#img2,#img3,#img4,#img5,#img6,#img7{
             display:none;
@@ -162,19 +172,23 @@
                     服务器从10月中旬开始调试，资源包移植、服务端部署及功能适配等历时近3个月，但为了让基岩版玩家拥有更好的游戏体验，我仍然会继续这些工作。
                     至于互通造成的Bug，多数已被修复，剩下的寒假期间也会逐渐修复，大家可以放心游玩！如果你发现了Bug，请通过群聊向我反馈，而不是梦回盘灵扩展包作者御龙九秋，他只解答或修复原版客户端/服务器造成的问题
                 </p>
-                <img id="img1" src="resources/1.webp"/>
-                <img id="img2" src="resources/2.webp"/>
-                <img id="img3" src="resources/3.webp"/>
-                <img id="img4" src="resources/4.webp"/>
-                <img id="img5" src="resources/5.webp"/>
-                <img id="img6" src="resources/6.webp"/>
-                <img id="img7" src="resources/7.webp"/>
+                <p>所有服务器的相关教程，及已知问题都在这里可以找到：<a class="linkbutton" href="../item.html?proFile=fantasy-continent-unbounded/documents.md">游玩指南及注意事项</a></p>
+                <p>
+                    <img id="img1" src="resources/1.webp"/>
+                    <img id="img2" src="resources/2.webp"/>
+                    <img id="img3" src="resources/3.webp"/>
+                    <img id="img4" src="resources/4.webp"/>
+                    <img id="img5" src="resources/5.webp"/>
+                    <img id="img6" src="resources/6.webp"/>
+                    <img id="img7" src="resources/7.webp"/>
+                </p>
                 <p>服务器Java版入口使用WebAuth登录插件，如需使用Java版游玩请先点击下方按钮注册/登录：</p>
-                <a id="jelogin" href="javascript:alert('链接加载失败，请联系管理员！')">使用Java版登录服务器</a>
+                <a class="linkbutton" id="jelogin" href="javascript:alert('链接加载失败，请刷新页面！')">使用Java版登录服务器</a>
                 <p>注：使用基岩版登录无论是否有绑定Java版账户都无需在此登录。</p>
             </div>
         </header>
         <footer>
+            <p>友情链接：<a href="https://www.mcbbs.net/thread-1116615-1-13.html">梦回盘灵</a> | <a href="http://pan-gu-continent.blogspot.tw">原版盘灵官网</a> | <a href="https://www.mcbbs.net/thread-434761-1-1.html">原版盘灵国内贴</a> | <a href="https://tieba.baidu.com/f?kw=%E7%9B%98%E7%81%B5%E5%8F%A4%E5%9F%9F&ie=utf-8">盘灵古域吧</a></p>
             <p>本页面仅作服务器的宣传，不提供地图下载。转载此页面任何内容都必须标注原作者的信息。<br>涉及游戏内的剧情文本为MayorTW & 红石口袋所有。"Minecraft"以及"我的世界"为美国微软公司的商标 本页面与微软公司没有从属关系。<br>© 2024 BugTea汐茶</p>
         </footer>
     </main>
