@@ -10,13 +10,13 @@
     <link rel="shortcut icon" href="resources/icon.png">
     <link rel="apple-touch-icon-precomposed" href="resources/icon.png">
     <script type="text/javascript">
-        var sourceJS = document.createElement("script");
+        /*var sourceJS = document.createElement("script");
         sourceJS.type = "text/javascript";
         sourceJS.src = "jelink.js?random=" + Number.parseInt(Math.random()*1000);
         sourceJS.onload = function(){
             document.getElementById("jelogin").href = jeLoginLnk
         }
-        document.head.appendChild(sourceJS);
+        document.head.appendChild(sourceJS);*/
         var turnimg = function(num){
             if (num == 8) var num = 1
             for (i = 1; i <= 7; i ++){
@@ -37,7 +37,7 @@
         body{
             height: 100%;
             color:#ffffff;
-            font-family: "harmonyos sans", "harmonyos sans sc", Helvetica, Tahoma, Arial, "Source Han Sans", "Source Han Sans CN", "hywenhei 85j", sans-serif;
+            font-family: "Source Han Serif", "harmonyos sans", "harmonyos sans sc", Helvetica, Tahoma, Arial, "Source Han Sans", "Source Han Sans CN", "hywenhei 85j", sans-serif;
         }
         #background{
             position: fixed;
@@ -145,6 +145,11 @@
             border-radius: 10px;
             font-size:20px;
             text-decoration: none;
+            transform: scale(1);
+            transition-duration: 0.2s;
+        }
+        .linkbutton:hover{
+            transform: scale(1.05);
         }
         #jelogin{
             display:block;
@@ -183,8 +188,8 @@
                     <img id="img7" src="resources/7.webp"/>
                 </p>
                 <p>服务器Java版入口使用WebAuth登录插件，如需使用Java版游玩请先点击下方按钮注册/登录：</p>
-                <a class="linkbutton" id="jelogin" href="javascript:alert('链接加载失败，请刷新页面！')">使用Java版登录服务器</a>
-                <p>注：使用基岩版登录无论是否有绑定Java版账户都无需在此登录。</p>
+                <a class="linkbutton" id="jelogin" target="_blank" href="http://fcub-login.eo.mk/">使用Java版登录服务器</a>
+                <p>注：基岩版玩家无论是否有绑定Java版账户，都无需在此登录。</p>
             </div>
         </header>
         <footer>

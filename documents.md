@@ -5,7 +5,7 @@
 
 ### 特别提示
 
-目前页面尚未完善，待更新（服主最近考试没空）
+目前页面尚未完善，待更新......
 
 ### 基岩版登录
 
@@ -26,7 +26,7 @@
 
 ![](./documents/JERefused.webp)
 
-这是因为Java版登录通道虽然使用离线账户系统，但出于安全性考虑，我为其部署了依靠网页进行验证的 WebAuth 登录插件，此时我们需要在指定的网页中完成登录操作。首先打开链接 [showLink](fantasy-continent-unbounded/login) 进入登录页面：
+这是因为Java版登录通道虽然使用离线账户系统，但出于安全性考虑，我为其部署了依靠网页进行验证的 WebAuth 登录插件，此时我们需要在指定的网页中完成登录操作。首先打开链接 [showLink](http://fcub-login.eo.mk/) 进入登录页面：
 
 ![](./documents/JELogin1.webp)
 
