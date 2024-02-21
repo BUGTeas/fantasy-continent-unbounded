@@ -68,7 +68,7 @@
             font-family: "harmonyos sans", "harmonyos sans sc", Helvetica, Tahoma, Arial, "Source Han Sans", "Source Han Sans CN", sans-serif;
             margin:0px 20px;
         }
-        h1 span,#subtitle span,#intochat span{
+        h1 span,#subtitle span,#intochat span,.guide-box .title span{
             white-space: nowrap;
         }
         #subtitle{
@@ -80,9 +80,9 @@
             display:inline-block;
             max-width:1080px;
             text-align: left;
-            margin:20px;
-            padding:10px;
-            border-radius: 10px;
+            margin:0px;
+            margin-top: 48px;
+            padding:14px 24px;
             color:#4b211c;
             background-color: rgba(255,255,255,0.6)
         }
@@ -119,6 +119,8 @@
         }
         #content p{
             margin:10px 0px;
+            font-size:18px;
+            line-height: 28px;
         }
         footer{
             text-align: center;
@@ -156,7 +158,57 @@
         }
         #img1,#img2,#img3,#img4,#img5,#img6,#img7{
             display:none;
-            border-radius:10px;
+            border-radius:20px;
+        }
+        .guide-box{
+            background-color:#650208;
+            padding:20px;
+            margin:20px 0px;
+            border-radius: 20px;
+        }
+        .guide-box *{
+            margin:0 auto;
+        }
+        .guide-box .title{
+            font-size:36px;
+            line-height: 36px;
+            color:#fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .guide-box .flex{
+            display:flex;
+        }
+        .guide-box a{
+            display: block;
+            flex:1;
+            font-size: 24px;
+            text-decoration: none;
+            line-height:64px;
+            text-align: center;
+            border-radius: 12px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+        #je{
+           background-color: #6F6F6F;
+           color:#fff;
+           text-shadow: 2px 2px 0px #404040;
+        }
+        #je:hover{
+           background-color: #7E88BF;
+           color:#ffff00;
+        }
+        #be{
+           background-color: #C6C6C6;
+           color:#404040;
+        }
+        #be:hover{
+           background-color: #218306;
+           color:#fff;
+        }
+        .guide-box .split{
+            width:20px
         }
     </style>
 </head>
@@ -165,9 +217,10 @@
     <main>
         <header>
             <div style="height:48px"></div>
-            <h1><span>欢迎游玩</span><span>幻域无界</span></h1>
-            <p id="subtitle"><span>以基岩版玩家为重心的</span><span>高版本盘灵古域互通服务器</span></p>
-            <p style="margin:20px;margin-bottom:0px;background:#ffefcc;padding:10px;color:#ff9100">目前该页面尚未完善，未来会得到改善，以更生动形象的方式展现</p>
+            <img src="./resources/icon.png" height="96">
+            <h1>幻域无界</h1>
+            <p id="subtitle"><span>以基岩版玩家为重心的</span><span>高版本《盘灵古域》互通服务器</span></p>
+            <!--<p style="margin:20px;margin-bottom:0px;background:#ffefcc;padding:10px;color:#ff9100">目前该页面尚未完善，未来会得到改善，以更生动形象的方式展现</p>-->
             <div id="content">
                 <p>
                     想在基岩版玩盘灵古域？那就来幻域无界互通服！基于间歇泉+高版本DLC（梦回盘灵），告别Java版启动器，告别复杂配置，享受原生系统支持的基岩版游戏体验！<br><br>2015年4月，史上最大东方玄幻RPG地图——盘灵古域发布于Java版，没有电脑的我们看着手机上的携带版，感到万分无奈。。。<br><br>时隔近九载，盘灵早已拥有了高版本DLC，支持1.20，GeyserMC（间歇泉）互通技术也在多年发展下让基岩版玩家越来越完美地登录Java版服务器并游玩，且实现了自定义物品/方块模型，在如此优越的条件下，通过从携带版发展而来的基岩版在盘古大陆冒险成为了可能。<br><br>如今，这一概念已经实现，无需下载专用客户端，就在最新基岩版，添加服务器即可游玩，基于间歇泉+梦回盘灵的互通服务器——幻域无界，正式和大家见面！
@@ -177,7 +230,6 @@
                     服务器从10月中旬开始调试，资源包移植、服务端部署及功能适配等历时近3个月，但为了让基岩版玩家拥有更好的游戏体验，我仍然会继续这些工作。
                     至于互通造成的Bug，多数已被修复，剩下的寒假期间也会逐渐修复，大家可以放心游玩！如果你发现了Bug，请通过群聊向我反馈，而不是梦回盘灵扩展包作者御龙九秋，他只解答或修复原版客户端/服务器造成的问题
                 </p>
-                <p>所有服务器的相关教程，及已知问题都在这里可以找到：<a class="linkbutton" href="../item.html?proFile=fantasy-continent-unbounded/documents.md">游玩指南及注意事项</a></p>
                 <p>
                     <img id="img1" src="resources/1.webp"/>
                     <img id="img2" src="resources/2.webp"/>
@@ -187,9 +239,14 @@
                     <img id="img6" src="resources/6.webp"/>
                     <img id="img7" src="resources/7.webp"/>
                 </p>
-                <p>服务器Java版入口使用WebAuth登录插件，如需使用Java版游玩请先点击下方按钮注册/登录：</p>
-                <a class="linkbutton" id="jelogin" target="_blank" href="http://fcub-login.eo.mk/">使用Java版登录服务器</a>
-                <p>注：基岩版玩家无论是否有绑定Java版账户，都无需在此登录。</p>
+                <div class="guide-box">
+                    <div class="title"><span>游玩指南和</span><span>常见问题解决方法</span></div>
+                    <div class="flex">
+                        <a id="be" href="../item.html?proFile=fantasy-continent-unbounded/documents/bedrock.md">基岩版</a>
+                        <div class="split"></div>
+                        <a id="je" href="../item.html?proFile=fantasy-continent-unbounded/documents/java.md">Java 版</a>
+                    </div>
+                </div>
             </div>
         </header>
         <footer>
