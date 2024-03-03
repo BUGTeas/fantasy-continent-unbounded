@@ -9,6 +9,8 @@
     <meta name="keywords" content="java基岩互通 je-be互通 基岩版 基岩版服务器 梦回盘灵 盘灵古域">
     <link rel="shortcut icon" href="resources/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="resources/icon.png">
+    <link rel="stylesheet" href="https://bugtea.ya.sy/resources/libs/swiper-bundle.min.css">
+    <script src="https://bugtea.ya.sy/resources/libs/swiper-bundle.min.js"></script>
     <script type="text/javascript">
         /*var sourceJS = document.createElement("script");
         sourceJS.type = "text/javascript";
@@ -17,7 +19,7 @@
             document.getElementById("jelogin").href = jeLoginLnk
         }
         document.head.appendChild(sourceJS);*/
-        var turnimg = function(num){
+        /*var turnimg = function(num){
             if (num == 8) var num = 1
             for (i = 1; i <= 7; i ++){
                 if (i == num) document.getElementById("img" + i).style = "display:block";
@@ -25,7 +27,37 @@
             }
             setTimeout(function(){turnimg(num + 1)},3000)
         }
-        window.onload = function(){turnimg(1)}
+        window.onload = function(){turnimg(1)}*/
+        window.onload = function(){
+			//轮播图swiper
+			var swiper = new Swiper('.swipercont', {
+				spaceBetween: 0,
+				loop: true,
+				autoplay: {
+					delay:2000,
+					disableOnInteraction: false
+				},
+				speed:250,
+				navigation: {
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+					renderBullet: function (index, className) {
+					return '<span class="' + className + '">' + (index + 1) + "</span>";
+					},
+				},
+			});
+			//鼠标悬停时暂停轮播
+			swiper.el.onmouseover = function(){
+				swiper.autoplay.stop();
+			}
+			swiper.el.onmouseout = function(){
+				swiper.autoplay.start();
+			}
+        }
     </script>
     <style>
         *{
@@ -41,7 +73,7 @@
         }
         #background{
             position: fixed;
-            background-image: url("../1919810/MCGroupRcmd/pangcont/emperorCity.jpg"),linear-gradient(175deg,#5474b6 0 25%,#57423a 50% 100%);
+            background-image: url("./resources/emperorCity.jpg"),linear-gradient(175deg,#5474b6 0 25%,#57423a 50% 100%);
             background-position: center center;
             background-size: cover;
             top:0;
@@ -50,7 +82,7 @@
             height:100%
         }
         main{
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(5px);
             width:100%;
             min-height:100%;
             display:flex;
@@ -67,27 +99,26 @@
             font-weight:bolder;
             font-family: "harmonyos sans", "harmonyos sans sc", Helvetica, Tahoma, Arial, "Source Han Sans", "Source Han Sans CN", sans-serif;
             margin:0px 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         }
         h1 span,#subtitle span,#intochat span,.guide-box .title span{
             white-space: nowrap;
         }
         #subtitle{
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
             font-size:22px;
             font-weight:normal;
             margin:0px 20px;
         }
         #content{
-            display:inline-block;
+            display:block;
             max-width:1080px;
             text-align: left;
-            margin:0px;
-            margin-top: 48px;
+            margin:0px auto;
+            margin-top: 24px;
             padding:14px 24px;
             color:#4b211c;
             background-color: rgba(255,255,255,0.6)
-        }
-        #content img{
-            width:100%
         }
         #intochat{
             padding:10px;
@@ -156,13 +187,47 @@
         #jelogin{
             display:block;
         }
-        #img1,#img2,#img3,#img4,#img5,#img6,#img7{
-            display:none;
+        .swipercont{
+            background-color:#4b211c;
+            overflow: hidden;
             border-radius:20px;
+            width:100%;
+            position: relative;
+        }
+        .swiper-button-next,.swiper-button-prev{
+            color:#FFFFFF;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.75);
+            margin:0px 20px;
+            transform: translate(0,-50%);
+            opacity:0;
+            transition-duration: 250ms;
+        }
+        .swiper-pagination{
+            opacity:0;
+            transition-duration: 250ms;
+        }
+        .swipercont:hover .swiper-button-next, .swipercont:hover .swiper-button-prev, .swipercont:hover .swiper-pagination{
+            opacity:1;
+        }
+        .swiper-pagination-bullet{
+            font-size:16px;
+            font-weight:0px;
+            width:24px;
+            height:24px;
+            color:#fff;
+        }
+        .swiper-pagination-bullet-active{
+            background-color:#4b211c;
+        }
+        .swiper-wrapper *{
         }
         .guide-box{
-            background-color:#650208;
+            display:inline-block;
+            width:calc(100% - 80px);
+            max-width:540px;
+            background-color:rgba(75, 33, 28, 0.9);
             padding:20px;
+            padding-top:13px;
             margin:20px 0px;
             border-radius: 20px;
         }
@@ -171,10 +236,10 @@
         }
         .guide-box .title{
             font-size:36px;
-            line-height: 36px;
+            line-height: 48px;
             color:#fff;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 13px;
         }
         .guide-box .flex{
             display:flex;
@@ -217,41 +282,49 @@
     <main>
         <header>
             <div style="height:48px"></div>
-            <img src="./resources/icon.png" height="96">
+            <img src="./resources/icon.png" height="192">
             <h1>幻域无界</h1>
             <p id="subtitle"><span>以基岩版玩家为重心的</span><span>高版本《盘灵古域》互通服务器</span></p>
             <!--<p style="margin:20px;margin-bottom:0px;background:#ffefcc;padding:10px;color:#ff9100">目前该页面尚未完善，未来会得到改善，以更生动形象的方式展现</p>-->
-            <div id="content">
-                <p>
-                    想在基岩版玩盘灵古域？那就来幻域无界互通服！基于间歇泉+高版本DLC（梦回盘灵），告别Java版启动器，告别复杂配置，享受原生系统支持的基岩版游戏体验！<br><br>2015年4月，史上最大东方玄幻RPG地图——盘灵古域发布于Java版，没有电脑的我们看着手机上的携带版，感到万分无奈。。。<br><br>时隔近九载，盘灵早已拥有了高版本DLC，支持1.20，GeyserMC（间歇泉）互通技术也在多年发展下让基岩版玩家越来越完美地登录Java版服务器并游玩，且实现了自定义物品/方块模型，在如此优越的条件下，通过从携带版发展而来的基岩版在盘古大陆冒险成为了可能。<br><br>如今，这一概念已经实现，无需下载专用客户端，就在最新基岩版，添加服务器即可游玩，基于间歇泉+梦回盘灵的互通服务器——幻域无界，正式和大家见面！
-                </p>
-                <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=u-2TAVjwWtIzDYbrhwvNlNP1UvMoCSIW&authKey=QFJ01YC%2BpvDFnqX4F7qLcoG6WMNsjex9%2FCZwN%2FkemXjNpnhHRhvqGl7t7i0pLCvz&noverify=0&group_code=490989498" target="_blank" id="intochat"><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico"/><div><span>欢迎加入群聊</span><span>了解更多：</span><span>490989498</span></div><div id="chattips">点击加入</div></a>
-                <p>
-                    服务器从10月中旬开始调试，资源包移植、服务端部署及功能适配等历时近3个月，但为了让基岩版玩家拥有更好的游戏体验，我仍然会继续这些工作。
-                    至于互通造成的Bug，多数已被修复，剩下的寒假期间也会逐渐修复，大家可以放心游玩！如果你发现了Bug，请通过群聊向我反馈，而不是梦回盘灵扩展包作者御龙九秋，他只解答或修复原版客户端/服务器造成的问题
-                </p>
-                <p>
-                    <img id="img1" src="resources/1.webp"/>
-                    <img id="img2" src="resources/2.webp"/>
-                    <img id="img3" src="resources/3.webp"/>
-                    <img id="img4" src="resources/4.webp"/>
-                    <img id="img5" src="resources/5.webp"/>
-                    <img id="img6" src="resources/6.webp"/>
-                    <img id="img7" src="resources/7.webp"/>
-                </p>
                 <div class="guide-box">
                     <div class="title"><span>游玩指南和</span><span>常见问题解决方法</span></div>
                     <div class="flex">
-                        <a id="be" href="../item.html?proFile=fantasy-continent-unbounded/documents/bedrock.md">基岩版</a>
+                        <a id="be" href="../item.html?article=fantasy-continent-unbounded/documents/bedrock.md">基岩版</a>
                         <div class="split"></div>
-                        <a id="je" href="../item.html?proFile=fantasy-continent-unbounded/documents/java.md">Java 版</a>
+                        <a id="je" href="../item.html?article=fantasy-continent-unbounded/documents/java.md">Java 版</a>
                     </div>
+                </div>
+            <div id="content">
+                <p>
+                    想在基岩版玩盘灵古域？那就来幻域无界互通服！基于间歇泉 + 高版本扩展（梦回盘灵），告别 Java 版启动器，告别复杂配置，享受原生系统支持的基岩版游戏体验！<br><br>2015 年 4 月，史上最大东方玄幻RPG地图——盘灵古域发布于 Java 版，没有电脑的我们看着手机上的携带版，感到万分无奈。。。<br><br>时隔近九载，盘灵早已拥有了高版本扩展，支持 1.20，GeyserMC（间歇泉）互通技术也在多年发展下让基岩版玩家越来越完美地登录Java版服务器并游玩，且实现了自定义物品/方块模型，在如此优越的条件下，通过从携带版发展而来的基岩版在盘古大陆冒险成为了可能。<br><br>如今，这一概念已经实现，无需下载专用客户端，就在最新基岩版，添加服务器即可游玩，基于间歇泉+梦回盘灵的互通服务器——幻域无界，正式和大家见面！
+                </p>
+                <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=u-2TAVjwWtIzDYbrhwvNlNP1UvMoCSIW&authKey=QFJ01YC%2BpvDFnqX4F7qLcoG6WMNsjex9%2FCZwN%2FkemXjNpnhHRhvqGl7t7i0pLCvz&noverify=0&group_code=490989498" target="_blank" id="intochat"><img src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico"/><div><span>欢迎加入群聊</span><span>了解更多：</span><span>490989498</span></div><div id="chattips">点击加入</div></a>
+                <p>
+                    服务器从 10 月中旬开始调试，资源包移植、服务端部署及功能适配等历时近 3 个月，但为了让基岩版玩家拥有更好的游戏体验，我仍然会继续这些工作。
+                    至于互通造成的 Bug，多数已被修复，剩下的寒假期间也会逐渐修复，大家可以放心游玩！如果你发现了 Bug，请通过群聊向我反馈，而不是梦回盘灵扩展包作者御龙九秋，他只解答或修复原版客户端/服务器造成的问题
+                </p>
+                <div class="swipercont">
+                    <!--轮播内容区域-->
+                    <div class="swiper-wrapper">
+                        <img class="swiper-slide" src="resources/1.webp"/>
+                        <img class="swiper-slide" src="resources/2.webp?v=021"/>
+                        <img class="swiper-slide" src="resources/3.webp"/>
+                        <img class="swiper-slide" src="resources/4.webp"/>
+                        <img class="swiper-slide" src="resources/5.webp"/>
+                        <img class="swiper-slide" src="resources/6.webp?v=021"/>
+                        <img class="swiper-slide" src="resources/7.webp"/>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </header>
         <footer>
-            <p>友情链接：<a href="https://www.mcbbs.net/thread-1116615-1-13.html">梦回盘灵</a> | <a href="http://pan-gu-continent.blogspot.tw">原版盘灵官网</a> | <a href="https://www.mcbbs.net/thread-434761-1-1.html">原版盘灵国内贴</a> | <a href="https://tieba.baidu.com/f?kw=%E7%9B%98%E7%81%B5%E5%8F%A4%E5%9F%9F&ie=utf-8">盘灵古域吧</a></p>
-            <p>本页面仅作服务器的宣传，不提供地图下载。转载此页面任何内容都必须标注原作者的信息。<br>涉及游戏内的剧情文本为MayorTW & 红石口袋所有。"Minecraft"以及"我的世界"为美国微软公司的商标 本页面与微软公司没有从属关系。<br>© 2024 BugTea汐茶</p>
+            <p>友情链接：<a href="https://kook.top/9Mr5ZG">梦回盘灵 (KOOK)</a> | <a href="http://pan-gu-continent.blogspot.tw">原版盘灵官网</a> | <a href="https://www.mcbbs.net/thread-434761-1-1.html">原版盘灵国内贴</a> | <a href="https://tieba.baidu.com/f?kw=%E7%9B%98%E7%81%B5%E5%8F%A4%E5%9F%9F&ie=utf-8">盘灵古域吧</a></p>
+            <p>本页面仅作服务器的宣传，不提供地图下载。转载此页面任何内容都必须标注原作者的信息。<br>涉及游戏内的剧情文本为MayorTW & 红石口袋所有。“Minecraft”以及“我的世界”为美国微软公司的商标 本页面与微软公司没有从属关系。<br>© 2024 BugTea汐茶</p>
         </footer>
     </main>
 </body>
