@@ -29,7 +29,7 @@ Java 版对平台要求不限（万物皆可），但相比基岩版对配置的
 由于原 WebAuth 登录系统过于老旧，且仍然存在安全隐患，现决定启用 LittleSkin 外置登录系统，即日起至 4 月 6 日（两周）给大家过渡，之后将正式停用 WebAuth 登录，请大家尽快完成账户迁移，感谢您的配合！
 
 ### 注册
-LittleSkin 的使用教程见：[外置认证设置指南 (LittleSkin 皮肤站)](?article=MCGuide/skinSite/littleskin.js)
+LittleSkin 的使用教程见：[外置认证设置指南 (LittleSkin 皮肤站)](?article=1919810/MCGuide/skinSite/littleskin.js)
 
 如果您曾在 WebAuth 登录下游玩过，则角色名必须和原来在 WebAuth 中的玩家名一致，且区分大小写，否则数据将不同步。（已有同名角色的可跳过）
 

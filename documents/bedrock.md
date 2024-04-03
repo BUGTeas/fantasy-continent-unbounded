@@ -2,11 +2,11 @@
 首页 / 指南 / 基岩版
 
 ### 版本要求
-目前服务器支持的基岩版版本号为：1.20.40 ~ 1.20.71（文档更新不及时，具体请看群公告）
+目前服务器支持的基岩版版本号为：1.20.40 ~ 1.20.72（文档更新不及时，具体请看群公告）
 
-支持 Android、iOS、Windows10/11以及各游戏主机，版本号要求都是一样的，只要能够安装上即可。
+支持 Android、iOS、Windows 10/11 以及各游戏主机，版本号要求都是一样的，只要能够安装上即可。
 
-Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指南](https://bugtea.ya.sy/item.html?proFile=1919810/MCGuide/)
+Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指南](?article=1919810/MCGuide/)
 
 ### 进服地址
 提供多个指向同一服务器的地址，但它们不固定，需要您从群公告获取，并留意其变更。
@@ -77,11 +77,14 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 遇到此问题**可能是因为交易失败，但不完全是**，将悬浮物品放到背包中，再检查一下有没有交易得来的物品，如果有则交易成功，否则失败。
 
 造成交易失败常见原因：
-1. 书本未阅读：在梦回盘灵中，为确保剧情完整，只有书本被阅读过才能用于交易；
-2. 背包中没有交易所需的原材料：在上一个问题中提到，基岩版会将图标相同但未必正确的物品放入槽位，而背包中又没有正确的物品。
+1. **书本未阅读**：在梦回盘灵中，为确保剧情完整，只有书本被阅读过才能用于交易；
+2. **背包中没有交易所需的原材料**：在上一个问题中提到，基岩版会将图标相同但未必正确的物品放入槽位，而背包中又没有正确的物品。
 
 ### 交易丹药
-由于梦回盘灵的丹药一次交易至少几份叠放，**这导致在交易时只有其中一个落入背包，其余的都会悬浮跟随**，需要将其扔出再捡回才能正常叠放。
+在 0.4 版本后，丹药交易得到了很大的改善。完美解决了丹药散开问题。
+
+但是其原理是交易一份标有叠放数值的虚假丹药，再自动转换为叠放的真实丹药，所以交易时要**确保背包始终至少留有一格空位**，否则点击交易时会无响应。
+<!--由于梦回盘灵的丹药一次交易至少几份叠放，**这导致在交易时只有其中一个落入背包，其余的都会悬浮跟随**，需要将其扔出再捡回才能正常叠放。
 
 <video autoplay loop muted><source src="./bedrock/problem/trade/potion-float.mp4" type="video/mp4"/></video>
 
@@ -90,7 +93,7 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 比如要换**五个新手疗愈丹**，那么背包中就至少要有**五个空位**，即使交易后是叠放的。
 
 ![预留空位](./bedrock/problem/trade/potion-request-space.webp)
-
+-->
 ### 选择交易项后总是自动跳转到其他项
 如果我没猜错的话，交易时最折磨人的问题非它莫属了：
 
@@ -106,9 +109,15 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 
 <video autoplay loop muted><source src="./bedrock/problem/trade/auto-redirects-solve2.mp4" type="video/mp4"/></video>
 
+**建议在每次交易前都按下紫色“轻拍”按钮**，确认是否为所需物品，减少不必要的损失：
+
+![轻拍查看信息](./bedrock/problem/trade/ensure.webp)
+
+注：该按钮在 0.4 更新后全局显示
+
 ## 漏斗投放问题
 ### 漏斗投放物品后自动传送，导致界面消失
-在传送过程中，如果玩家打开了漏斗界面，那么可能会触发Bug导致进入摄像机模式，界面被隐藏，需要退出重进才能恢复。
+在传送过程中，如果玩家打开了漏斗界面，那么可能会触发 Bug 导致进入摄像机模式，界面被隐藏，**需要退出重进才能恢复**。
 
 <video autoplay loop muted><source src="./bedrock/problem/hopper/bug.mp4" type="video/mp4"/></video>
 
@@ -132,17 +141,23 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 
 <video autoplay loop muted><source src="./bedrock/problem/hopper/swamp.mp4" type="video/mp4"/></video>
 
-## 原版不能叠放的物品
-在盘灵中有不少物品需要叠放，而在原版中这些又未必能实现。
+## 丹药等物品无法移动
+为确保基岩版可正常使用丹药，并优化游戏体验，服务器添加了物品增量叠放插件，将**各类丹药、退火符、击退符、佛跳墙、万春羹、兔肉煲的叠放上限调整到了 64 个**。
 
-### 丹药/退火符/击退符/万春羹无法移动
-为确保基岩版可正常使用丹药，并优化游戏体验，服务器添加了物品增量叠放插件，对物品的叠放上限做了以下调整：\
-服用丹药：**99**\
-喷溅丹药：**99**\
-退火符/击退符：**99**\
-万春羹：**32**
+但是在基岩版中由于间歇泉互通的限制，这些调整过的物品在移动和扔出时会出现问题。
 
-但是在基岩版中由于间歇泉互通的限制，这些调整过的物品在移动和扔出时会出现问题，只能将其扔出再捡回。
+### 移动物品位置（0.4 更新后已得到改善）
+虽然**非标准叠放的物品不能正常移动**，但在触屏下通过**互换物品位置**的方法也同样能达到移动的目的：
+
+<video autoplay loop muted><source src="./bedrock/problem/stack/move-touch.mp4" type="video/mp4"/></video>
+
+而键鼠就**只能扔出再捡回**以进行不理想的移动了。将鼠标悬停在目标物品上，按 Ctrl+Q 扔出：
+
+<video autoplay loop muted><source src="./bedrock/problem/stack/throw-out-mouse.mp4" type="video/mp4"/></video>
+
+需要注意的是，移动炼丹锅（漏斗）上的东西时，要**与其保持一定距离**，不然扔不出来。
+<!--
+![保持一定距离](./bedrock/problem/stack/keep-away.webp)
 
 ### 将炼制好的丹药放入背包
 像 Java 那样按 Shift 是不可能的了，即使是 Win10 基岩这样操作也会使其散开。需要扔出再捡回。首先离炼丹锅（漏斗）保持一定距离，不然扔不出来：
@@ -159,13 +174,13 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 
 ### 在物品栏中转移位置和叠放
 由于超过标准叠放上限的物品无法正常移动和叠放，只能将其扔出再捡回，操作和取丹药同理。
-
+-->
 ### 按“Q”或长按扔出后物品消失不见？
 手持超过标准叠放上限的物品，按“Q”或长按将其扔出，却发现物品并未扔出去，而是消失了？！
 
-<video autoplay loop muted><source src="./bedrock/problem/stack/throw-out-on-hand.mp4" type="video/mp4"/></video>
+<video autoplay loop muted><source src="./bedrock/problem/stack/throw-out-on-hand.mp4?ver=040" type="video/mp4"/></video>
 
-其实它并没有消失，服务器依旧认为它还在原位，只需要稍微改变一下物品栏的物品排列，它就会立刻刷新出来。
+其实它并没有消失，服务器依旧认为它还在原位，只需要打开一下物品栏<!--稍微改变一下物品栏的物品排列-->，它就会立刻刷新出来。
 
 如果您真的需要将其扔出，请在界面中进行操作，不要手持按“Q”或长按。
 
@@ -179,7 +194,7 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 
 <video autoplay loop muted><source src="./bedrock/problem/enderbox/double-click.mp4" type="video/mp4"/></video>
 
-如果您的背包已满，没有空位，那么双击是没有反应的，只能把按钮和背包中的物品交换一下，这不会有问题的可以放心：
+如果您的背包已满，没有空位，那么双击是没有反应的，只能将按钮和背包中的物品交换一下，这不会有问题的可以放心：
 
 <video autoplay loop muted><source src="./bedrock/problem/enderbox/swap-item.mp4" type="video/mp4"/></video>
 
@@ -187,16 +202,21 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 
 <video autoplay loop muted><source src="./bedrock/problem/enderbox/in-warehouse.mp4" type="video/mp4"/></video>
 
-但是，请不要移动箱子中的任何按钮，否则**有可能会造成不堪设想的后果！**
+但是，请不要改变箱子中任何按钮的位置，否则**有可能会造成不堪设想的后果！**
 
+**这不是在开玩笑**！！！已经有不少玩家因此损失了仓库里的一切，包括服主我也是。。。
+<!--
 ### 界面布局错乱
 这主要是由于携带版 UI 导致的，解决方法见此：[携带版 UI 导致界面错乱](javascript:autoScroll(subTitleIndex[2].offsetTop))
 
-![仓库空间](./bedrock/problem/ui/difference-in-enderbox.webp)
+![仓库空间](./bedrock/problem/ui/difference-in-enderbox.webp)-->
 
-### 以下 Bug 目前仍待修复
+## 以下 Bug 正在修复
 
-1. 丹药没有颜色且不能查看其属性：由于基岩版不支持自定义药水，而间歇泉尚未对此提供相关解决方案，颜色目前无解。但可以将属性直接写在名称 NBT 上，不过盘灵丹药数量繁多，想要涵盖所有的丹药非常困难，如果您对盘灵的丹药了如指掌，欢迎来和我合作，共同将其修复完善！
+### 丹药没有颜色且不能查看其属性
+由于基岩版不支持自定义药水，而间歇泉尚未对此提供相关解决方案。但可以将颜色属性直接写在名称 NBT 上，不过盘灵丹药数量繁多，想要涵盖所有的丹药非常困难，目前 0.4.0 更新只修复了交易的丹药、由炼丹师所产出的各种丹药（万灵丹、回春露等）将在下一版本（0.4.1）修复。
+
+由于 0.4 更新后的丹药数据格式与旧版本不同，旧版本丹药依旧无法显示颜色及属性，且不能和新版丹药叠放，但不影响正常使用。为了便于区分，所有旧版丹药在左上角都标有“旧”字样。
 
 如果有其他的 Bug，请及时向我反馈。
 
@@ -234,4 +254,4 @@ Android / Windows 的基岩版安装教程可见：[Minecraft 安装和配置指
 
 有关其操作，可见：[将 Java 版玩家数据共享给基岩版](./linkaccount.md)
 
-/showNav()
+/showNav();console.log("2024.4.3 随幻域无界 0.4.0 版本更新")
