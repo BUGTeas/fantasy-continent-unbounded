@@ -69,7 +69,7 @@
         body{
             height: 100%;
             color:#ffffff;
-            font-family: "Source Han Serif", "harmonyos sans", "harmonyos sans sc", Helvetica, Tahoma, Arial, "Source Han Sans", "Source Han Sans CN", "hywenhei 85j", sans-serif;
+            font-family: "harmonyos sans", "harmonyos sans sc", Helvetica, Tahoma, Arial, "Source Han Sans", "Source Han Sans CN", "hywenhei 85j", sans-serif;
         }
         #background{
             position: fixed;
@@ -91,24 +91,115 @@
             flex-direction: column;
         }
         header{
-            text-align: center;
+            /*text-align: center;*/
             flex:1;
+            padding-top: 32px;
         }
-        h1{
+        #intochat span,.guide-box .title span{
+            white-space: nowrap;
+        }
+        #titleMain{
+            margin: auto;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            max-width: 640px;
+        }
+        #titleMain #icon{
+            width: 100%;
+            max-width: 192px;
+        }
+        #titleContent{
+            white-space :nowrap;
+        }
+        #titleContent h1{
             font-size:64px;
             font-weight:bolder;
             font-family: "harmonyos sans", "harmonyos sans sc", Helvetica, Tahoma, Arial, "Source Han Sans", "Source Han Sans CN", sans-serif;
-            margin:0px 20px;
+            margin:0px;
+            line-height: 64px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         }
-        h1 span,#subtitle span,#intochat span,.guide-box .title span{
-            white-space: nowrap;
-        }
-        #subtitle{
+        #titleContent p{
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
             font-size:22px;
             font-weight:normal;
-            margin:0px 20px;
+            margin:0px;
+        }
+        /*宽屏*/
+        @media screen and (min-width:641px) {
+            #titleContent{
+                margin-left: 20px;
+            }
+        }
+        /*竖屏*/
+        @media screen and (max-width:640px) {
+            #titleContent{
+                margin: 20px 20px 0px 20px;
+            }
+            #titleMain{
+                flex-direction:column;
+                text-align: center;
+            }
+        }
+        .guide-box{
+            width:calc(100% - 80px);
+            max-width:540px;
+            background-color:rgba(75, 33, 28, 0.9);
+            padding:20px;
+            padding-top:13px;
+            margin:20px auto;
+            border-radius: 20px;
+        }
+        .guide-box *{
+            margin:0 auto;
+        }
+        .guide-box .title{
+            font-size:36px;
+            font-weight: 300;
+            line-height: 48px;
+            color:#fff;
+            /*text-align: center;*/
+            margin-bottom: 13px;
+        }
+        .guide-box a{
+            display: block;
+            font-size: 24px;
+            text-decoration: none;
+            line-height:64px;
+            border-radius: 12px;
+            background-color: rgba(255,255,255,0.2);
+            color: #fff;
+            overflow: hidden;
+            padding: 0px 66px 0px 66px;
+            transform: scale(1);
+            transition-property: background-color,transform;
+            transition-duration: 0.2s;
+        }
+        .guide-box a:hover{
+            transform: scale(0.99);
+            background-color: rgba(255,255,255,0.3);
+        }
+        .guide-box a:active{
+            transform: scale(0.98);
+            background-color: rgba(255,255,255,0.4);
+        }
+        /*expand_circle_right图片来自https://fonts.google.com/*/
+        #je{
+            background-image: url("https://help.minecraft.net/favicon.ico"),url("resources/expand_circle_right_FILL1_wght400_GRAD0_opsz40.svg");
+            background-repeat: no-repeat,no-repeat;
+            background-size: 36px,36px;
+            background-position: left 20px center,right 20px center;
+        }
+        #be{
+            background-image: url("https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/logos/Homepage_Gameplay-Trailer_MC-OV-logo_300x300.png"),url("resources/expand_circle_right_FILL1_wght400_GRAD0_opsz40.svg");
+            background-repeat: no-repeat,no-repeat;
+            background-size: 36px,36px;
+            background-position: left 20px center,right 20px center;
+        }
+        .guide-box .split{
+            height:10px
         }
         #content{
             display:block;
@@ -149,10 +240,16 @@
             height:18px;
             margin-right:5px
         }
-        #content p{
+        #content p, #content li{
             margin:10px 0px;
             font-size:18px;
             line-height: 28px;
+        }
+        #content h2{
+            text-align: center;
+            font-size:36px;
+            font-weight: 300;
+            margin: 20px
         }
         footer{
             text-align: center;
@@ -222,70 +319,30 @@
         }
         .swiper-wrapper *{
         }
-        .guide-box{
-            display:inline-block;
-            width:calc(100% - 80px);
-            max-width:540px;
-            background-color:rgba(75, 33, 28, 0.9);
-            padding:20px;
-            padding-top:13px;
-            margin:20px 0px;
-            border-radius: 20px;
-        }
-        .guide-box *{
-            margin:0 auto;
-        }
-        .guide-box .title{
-            font-size:36px;
-            line-height: 48px;
-            color:#fff;
-            text-align: center;
-            margin-bottom: 13px;
-        }
-        .guide-box .flex{
-            display:flex;
-        }
-        .guide-box a{
-            display: block;
-            flex:1;
-            font-size: 24px;
-            text-decoration: none;
-            line-height:64px;
-            text-align: center;
-            border-radius: 12px;
-            background-color: #fff;
-            overflow: hidden;
-        }
-        #je{
-           background-color: #6F6F6F;
-           color:#fff;
-           text-shadow: 2px 2px 0px #404040;
-        }
-        #je:hover{
-           background-color: #7E88BF;
-           color:#ffff00;
-        }
-        #be{
-           background-color: #C6C6C6;
-           color:#404040;
-        }
-        #be:hover{
-           background-color: #218306;
-           color:#fff;
-        }
-        .guide-box .split{
-            width:20px
-        }
     </style>
 </head>
 <body>
     <div id="background"></div>
     <main>
         <header>
-            <div style="height:48px"></div>
-            <img src="./resources/icon.png" height="192">
-            <h1>幻域无界</h1>
-            <p id="subtitle"><span>以基岩版玩家为重心的</span><span>高版本《盘灵古域》互通服务器</span></p>
+            <!--<div id="title">
+                <img src="./resources/icon.png" height="192">
+                <h1>幻域无界</h1>
+                <p id="subtitle"><span>以基岩版玩家为重心的</span><span>高版本《盘灵古域》互通服务器</span></p>
+            </div>-->
+            <div style="display: flex;">
+                <div style="flex:1"></div>
+                <div id="titleMain">
+                    <img src="./resources/icon.png" id="icon">
+                    <div id="titleContent">
+                            <h1>幻域无界</h1>
+                            <p>以基岩版玩家为重心的</p>
+                            <p>高版本《盘灵古域》</p>
+                            <p>互通公益服务器</p>
+                    </div>
+                </div>
+                <div style="flex:1"></div>
+            </div>
             <!--<p style="margin:20px;margin-bottom:0px;background:#ffefcc;padding:10px;color:#ff9100">目前该页面尚未完善，未来会得到改善，以更生动形象的方式展现</p>-->
                 <div class="guide-box">
                     <div class="title"><span>游玩指南和</span><span>常见问题解决方法</span></div>
@@ -303,6 +360,15 @@
                 <p>
                     服务器自去年 10 月中旬开始调试，资源包移植、服务端部署及功能适配等初期工作历时近 3 个月。至于互通造成的 Bug，多数经过修复，达到了一个可正常游玩的程度。但修复仍会持续下去，不断地提升和改善游戏体验，大家可以放心游玩！如果你发现了 Bug，请通过群聊向我反馈，而不是梦回盘灵扩展包作者御龙九秋，他只解答或修复原版客户端/服务器造成的问题
                 </p>
+                <h2>服务器特色</h2>
+                <ul>
+                    <li>战士一键被动技能，只需要轻轻按一下潜行，无需右键或长按武器，触屏体验更佳（不用再羡慕六阶棒的主动胜于被动了）</li>
+                    <li>退火符/击退符/丹药默认不会连续投掷，避免触屏投掷容易误触连发的问题</li>
+                    <li>丹药、退火符、击退符、佛跳墙、万春羹、兔肉煲可叠放，上限为64，且基岩版同样支持</li>
+                    <li>发展近半年，技术成熟，拥有自制的插件+数据包用于优化游戏体验，紧跟 GeyserMC 最新版，玩家数据每隔一天自动备份</li>
+                </ul>
+                <h2>游戏画面概览</h2>
+                <p style="text-align: center;">（以下图片掺杂有历史版本，请以服务器最新版本为准）</p>
                 <div class="swipercont">
                     <!--轮播内容区域-->
                     <div class="swiper-wrapper">
@@ -324,7 +390,7 @@
         </header>
         <footer>
             <p>友情链接：<a href="https://kook.top/9Mr5ZG">梦回盘灵 (KOOK)</a> | <a href="http://pan-gu-continent.blogspot.tw">原版盘灵官网</a> | <a href="https://www.mcbbs.net/thread-434761-1-1.html">原版盘灵国内贴</a> | <a href="https://tieba.baidu.com/f?kw=%E7%9B%98%E7%81%B5%E5%8F%A4%E5%9F%9F&ie=utf-8">盘灵古域吧</a></p>
-            <p>本页面仅作服务器的宣传，不提供地图下载。转载此页面任何内容都必须标注原作者的信息。<br>涉及游戏内的剧情文本为 MayorTW & 红石口袋所有。“Minecraft”以及“我的世界”为美国微软公司的商标 本页面与微软公司没有从属关系。<br>© 2024 BugTea汐茶</p>
+            <p>本页面仅作服务器的宣传，不提供地图下载。转载此页面任何内容都必须标注原作者的信息。<br>涉及游戏内的剧情文本为 MayorTW & 红石口袋所有。“Minecraft”、“我的世界”及草方块图标为美国微软公司的商标 本页面与微软公司没有从属关系。<br>© 2024 BugTea汐茶</p>
         </footer>
     </main>
 </body>
